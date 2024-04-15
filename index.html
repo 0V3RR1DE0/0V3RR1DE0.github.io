@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>0v3rr1de0's GitHub Page</title>
+    <style>
+        h1::after {
+            content: ' (Try hovering over me!)';
+            visibility: hidden;
+        }
+
+        h1:hover::after {
+            visibility: visible;
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to 0v3rr1de0's GitHub Page</h1>
     <p>Nothing to see here (～￣▽￣)～</p>
+
+    <script>
+        let keys = [];
+        const secretCode = 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a';
+
+        window.addEventListener('keydown', (e) => {
+            keys.push(e.key);
+            keys.splice(-secretCode.split(',').length - 1, keys.length - secretCode.split(',').length);
+            if (keys.join(',') === secretCode) {
+                alert('You found an easter egg! (＾▽＾)');
+            }
+        });
+
+        // Command to trigger the easter egg alert from the console
+        window.Override = function() {
+            alert('You found an easter egg! (＾▽＾)');
+        }
+    </script>
 </body>
 </html>
